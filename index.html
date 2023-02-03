@@ -1,18 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
-   
+<script src="index.js"></script> 
+<meta charset="utf-8"
 </head>
 <body>
+<b>Pamiętaj! Jeżeli atak wroga dociera w parzystej sekundzie, Ty musisz wysłać wojska też w parzystej sekundzie i analogicznie z sekundą nieparzystą.</b>
+<br>
+<br>
   <label for="atak"> O której godzinie dociera atak wroga?</label>
-  <input type="time" id="appt" name="appt" value="08:00:01" step="1" required>
+  <input type="time" id="date1" name="appt" step="1" required>
 
 <br>
 <br>
 
+  <label for="atak"> O której godzinie wysłałeś atak? (jeśli pamiętasz)</label>
+  <input type="time" id="date2" name="appt" step="1" required>
+
+<br>
+<br>
+<b>Gdy nie pamiętasz godziny wysłania ataku:</b>
+<br>
+<br>
   <label for="atak"> O której godzinie dociera Twój atak z cofką?</label>
-  <input type="time" id="appt" name="appt" value="08:00:01" step="1" required>
+  <input type="time" id="appt" name="appt" step="1" required>
   
+  
+  <br>
+  <br>
+  <label for="tentacles">Odległość od wioski (ilość pól):</label>
+
+  <input type="number" id="tentacles" name="tentacles"
+        min="1" max="9999">
 <br>
 <br>
 
@@ -55,13 +74,35 @@
   </div>
 
   </fieldset>
-  
+
+<br>
+<br>
+  <label for="atak">Musisz cofnąć atak o godzinie:<br>(wersja gdy sam wpisałeś/aś godzinę wysłania)</label>
+  <input type="time" id="appt" name="appt" step="1" required>
+
 <br>
 <br>
   <label for="atak"> Musisz cofnąć atak o godzinie:</label>
-  <input type="time" id="appt" name="appt" value="08:00:01" step="1" required>
-  
+  <input type="time" id="appt" name="appt" step="1" required>
 <br>  
 <br>
+<h3> 
+<p id="date2"> </p>
+<p id="totalDiff">Number of seconds between two dates: </p>
+<script>
+var splitted1 = "{time1}".split(":");
+var splitted2 = "{time2}".split(":");
+var time1 = splitted1[0]+splitted1[1];
+var time2 = splitted2[0]+splitted2[1];
+if (time1 < time2) {
+var diff = getTimeDiff('{time2}', '{time1}', 's');
+diff;
+} else {
+var diff1 = getTimeDiff('24:00', '{time1}', 's');
+var diff2 = getTimeDiff('{time2}', '00:00', 's');
+var totalDiff = diff1+diff2;
+totalDiff;
+};
+</script>
 </body>
 </html>
